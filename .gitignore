@@ -1,0 +1,21 @@
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# Editores
+.vscode/
+.idea/
+
+# Node
+node_modules/
+package-lock.json
+
+# Backup local nao versionado
+data/backups/
+*.bak
+
+# Dados sensiveis em claro (NUNCA versionar)
+data/marcos.json
+data/pessoas.json
+# Apenas versoes .enc devem ser commitadas
