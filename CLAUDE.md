@@ -30,7 +30,7 @@ A hierarquia abaixo é parâmetro do sistema, não decoração. Aparece em ordem
 
 ## Princípios não-negociáveis
 
-1. Privacidade total. O sistema não tem URL pública navegável. Dados criptografados em repouso com AES-GCM. Chave nunca sai do navegador.
+1. Privacidade por criptografia. A URL pode ser pública; a segurança vem da criptografia AES-GCM no navegador, não da obscuridade. Dados ininteligíveis sem a senha mestra. Chave nunca sai do navegador. Princípio alinhado com Bitwarden, Signal, Bitcoin.
 
 2. Marco com reflexão. Marco histórico sem campo reflection preenchido é incompleto.
 
