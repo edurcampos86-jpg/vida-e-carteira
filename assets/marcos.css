@@ -1,0 +1,249 @@
+/* Vida & Carteira — Estilos da tela de marcos
+   Schema Keeper / Fase 2
+   Complementa styles.css (gate). Usa as mesmas variaveis :root. */
+
+/* Paleta dos seis pilares */
+
+.pilar-saude          { --pilar-fill: #FCEBEB; --pilar-stroke: #A32D2D; --pilar-text: #791F1F; }
+.pilar-familia        { --pilar-fill: #FAECE7; --pilar-stroke: #993C1D; --pilar-text: #712B13; }
+.pilar-trabalho       { --pilar-fill: #FAEEDA; --pilar-stroke: #854F0B; --pilar-text: #633806; }
+.pilar-relacionamentos{ --pilar-fill: #EEEDFE; --pilar-stroke: #534AB7; --pilar-text: #3C3489; }
+.pilar-material       { --pilar-fill: #E1F5EE; --pilar-stroke: #0F6E56; --pilar-text: #085041; }
+.pilar-espiritual     { --pilar-fill: #E6F1FB; --pilar-stroke: #185FA5; --pilar-text: #0C447C; }
+
+.app-shell {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.app-header .lock-btn {
+  width: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.app-header .lock-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.section-card .hint {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg-primary);
+}
+
+.field textarea { resize: vertical; min-height: 60px; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.type-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.type-toggle button {
+  flex: 1;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.type-toggle button.active {
+  background: rgba(133, 183, 235, 0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.pilar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.pilar-btn {
+  padding: 0.65rem 0.4rem;
+  font-size: 0.85rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.pilar-btn:hover { border-color: var(--pilar-stroke); }
+
+.pilar-btn.active {
+  background: var(--pilar-fill);
+  border: 2px solid var(--pilar-stroke);
+  color: var(--pilar-text);
+  font-weight: 600;
+}
+
+.weight-readout {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.weight-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.reflection-block {
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.reflection-block .reflection-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.reflection-block .reflection-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.save-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.save-btn:hover { background: var(--accent-hover); }
+
+.marcos-list {
+  list-style: none;
+}
+
+.marco-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0.9rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--pilar-stroke, var(--border));
+  border-radius: var(--radius);
+  margin-bottom: 0.6rem;
+}
+
+.marco-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--pilar-stroke, var(--text-muted));
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.marco-body { flex: 1; min-width: 0; }
+
+.marco-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.marco-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
