@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edurcampos86-jpg.github.io/vida-e-carteira/data/schema/marco.schema.json",
+  "title": "Marco",
+  "description": "Um marco da trajetoria de vida — historico (ja vivido) ou prospectivo (planejado). Schema Keeper.",
+  "type": "object",
+  "required": ["id", "type", "title", "year", "dimension", "weight", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador unico do marco. Formato: m_ + timestamp ou uuid.",
+      "pattern": "^m_[a-zA-Z0-9_-]+$"
+    },
+    "type": {
+      "type": "string",
+      "description": "historico = ja aconteceu; prospectivo = planejado para o futuro.",
+      "enum": ["historico", "prospectivo"]
+    },
+    "title": {
+      "type": "string",
+      "description": "Titulo curto do marco.",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "year": {
+      "type": "integer",
+      "description": "Ano do marco.",
+      "minimum": 1986,
+      "maximum": 2031
+    },
+    "month": {
+      "type": ["integer", "null"],
+      "description": "Mes do marco (1-12). Opcional — nem todo marco tem mes preciso.",
+      "minimum": 1,
+      "maximum": 12
+    },
+    "dimension": {
+      "type": "string",
+      "description": "Um dos seis pilares.",
+      "enum": ["saude", "familia", "trabalho", "relacionamentos", "material", "espiritual"]
+    },
+    "weight": {
+      "type": "integer",
+      "description": "Peso/importancia do marco, de 1 (leve) a 10 (definidor). Controla o tamanho visual na constelacao.",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Descricao livre do marco. O que aconteceu ou o que se planeja.",
+      "maxLength": 2000
+    },
+    "reflection": {
+      "type": ["object", "null"],
+      "description": "Reflexao sobre o marco. Obrigatoria conceitualmente para marcos historicos (principio do CLAUDE.md), mas validada de forma leve aqui.",
+      "additionalProperties": false,
+      "properties": {
+        "learning": {
+          "type": ["string", "null"],
+          "description": "O que aprendi com este marco.",
+          "maxLength": 1000
+        },
+        "belief_reinforced": {
+          "type": ["string", "null"],
+          "description": "Que crenca pessoal este marco reforcou ou criou.",
+          "maxLength": 1000
+        }
+      }
+    },
+    "target": {
+      "type": ["object", "null"],
+      "description": "Apenas para marcos prospectivos: meta e indicadores de sucesso.",
+      "additionalProperties": false,
+      "properties": {
+        "deadline": {
+          "type": ["string", "null"],
+          "description": "Prazo alvo no formato AAAA-MM ou AAAA.",
+          "pattern": "^[0-9]{4}(-[0-9]{2})?$"
+        },
+        "indicators": {
+          "type": "array",
+          "description": "Indicadores que dizem se a meta foi atingida.",
+          "items": { "type": "string", "maxLength": 200 }
+        }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "description": "Apenas para marcos prospectivos: decisoes em aberto associadas a este marco.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "topic"],
+        "properties": {
+          "id": { "type": "string" },
+          "topic": { "type": "string", "maxLength": 200 },
+          "options": {
+            "type": "array",
+            "items": { "type": "string", "maxLength": 200 }
+          },
+          "chosen": { "type": ["string", "null"], "maxLength": 200 },
+          "deadline": {
+            "type": ["string", "null"],
+            "pattern": "^[0-9]{4}(-[0-9]{2})?$"
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Etiquetas livres para filtrar e agrupar marcos.",
+      "items": { "type": "string", "maxLength": 40 }
+    },
+    "people": {
+      "type": "array",
+      "description": "IDs de pessoas associadas a este marco (referencia a pessoa.schema.json).",
+      "items": { "type": "string" }
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp ISO 8601 de quando o registro foi criado.",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "description": "Timestamp ISO 8601 da ultima atualizacao.",
+      "format": "date-time"
+    }
+  }
+}
