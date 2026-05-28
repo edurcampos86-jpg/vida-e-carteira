@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edurcampos86-jpg.github.io/vida-e-carteira/data/schema/pessoa.schema.json",
+  "title": "Pessoa",
+  "description": "Uma pessoa relevante na trajetoria de vida. Referenciada por marcos. Schema Keeper.",
+  "type": "object",
+  "required": ["id", "name", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador unico da pessoa. Formato: p_ + slug ou uuid.",
+      "pattern": "^p_[a-zA-Z0-9_-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Nome da pessoa.",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "relation": {
+      "type": ["string", "null"],
+      "description": "Relacao com a pessoa (ex: marido, mae, socio, mentor, amigo).",
+      "maxLength": 80
+    },
+    "since": {
+      "type": ["integer", "null"],
+      "description": "Ano em que a relacao comecou.",
+      "minimum": 1900,
+      "maximum": 2031
+    },
+    "dimension": {
+      "type": ["string", "null"],
+      "description": "Pilar predominante associado a esta pessoa.",
+      "enum": ["saude", "familia", "trabalho", "relacionamentos", "material", "espiritual", null]
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "description": "Notas livres sobre a pessoa.",
+      "maxLength": 2000
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp ISO 8601 de criacao do registro.",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "description": "Timestamp ISO 8601 da ultima atualizacao.",
+      "format": "date-time"
+    }
+  }
+}
