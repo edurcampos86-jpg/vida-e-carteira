@@ -1,26 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-mode="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0f1011">
+<meta name="theme-color" content="#0A0908">
 <title>Vida & Carteira</title>
 <meta name="robots" content="noindex, nofollow">
+
+<script>
+(function(){
+  try {
+    var m = localStorage.getItem("vc-theme-mode");
+    if (m === "dark" || m === "light") {
+      document.documentElement.setAttribute("data-mode", m);
+    }
+  } catch(e) {}
+})();
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.40.0/tabler-icons.min.css">
+<link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/marcos.css">
 </head>
 <body>
 <noscript>
-  <p style="color:#fff;text-align:center;padding:2rem;">
+  <p style="color:#FFFFFF;text-align:center;padding:2rem;background:#0A0908;">
     Este sistema requer JavaScript habilitado.
   </p>
 </noscript>
+
 <main id="app">
   <div class="gate-card">
-    <h1>Vida & Carteira</h1>
+    <h1>Vida<span class="amp"> & </span>Carteira</h1>
     <p class="subtitle">Inicializando...</p>
   </div>
 </main>
+
+<script src="assets/theme.js"></script>
 <script src="assets/crypto.js"></script>
 <script src="assets/marco-form.js"></script>
 <script src="assets/gate.js"></script>
