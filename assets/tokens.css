@@ -1,1 +1,151 @@
+/* Vida & Carteira — Tokens visuais
+   Constituicao visual / Sprint 2A
+   Fundacao de cores, tipografia e modos (Onix escuro + Papel claro).
 
+   Modo Onix:   data-mode="dark"   (padrao)
+   Modo Papel:  data-mode="light"
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,400;0,500;0,700;1,500;1,700&family=Inter:wght@400;500&display=swap");
+
+:root,
+[data-mode="dark"] {
+  --vc-bg:           #0A0908;
+  --vc-bg-elev:      #14110E;
+  --vc-bg-sub:       #1F1A14;
+  --vc-border:       #2A2520;
+  --vc-border-strong:#3D3528;
+
+  --vc-text-1: #FFFFFF;
+  --vc-text-2: #B8A572;
+  --vc-text-3: #8B7A55;
+  --vc-text-4: #6B5A35;
+
+  --vc-accent:      #D4A24C;
+  --vc-accent-soft: #F2D88F;
+  --vc-bronze:      #8B6B2A;
+
+  --vc-p-saude:      #E24B4A;
+  --vc-p-familia:    #E27D5C;
+  --vc-p-trabalho:   #EAB45C;
+  --vc-p-relacoes:   #8C84E8;
+  --vc-p-material:   #5EC9A6;
+  --vc-p-espiritual: #6CABE0;
+
+  --vc-danger: #E27374;
+  --vc-success: #8BD4B1;
+}
+
+[data-mode="light"] {
+  --vc-bg:           #F5F0E6;
+  --vc-bg-elev:      #FFFDF7;
+  --vc-bg-sub:       #EDE5D2;
+  --vc-border:       #D9C9A8;
+  --vc-border-strong:#B8A572;
+
+  --vc-text-1: #1A1410;
+  --vc-text-2: #5C4A2E;
+  --vc-text-3: #8B7A55;
+  --vc-text-4: #A8997A;
+
+  --vc-accent:      #B8924A;
+  --vc-accent-soft: #8B6B2A;
+  --vc-bronze:      #6B5234;
+
+  --vc-p-saude:      #A33D2E;
+  --vc-p-familia:    #993C1D;
+  --vc-p-trabalho:   #854F0B;
+  --vc-p-relacoes:   #534AB7;
+  --vc-p-material:   #0F6E56;
+  --vc-p-espiritual: #185FA5;
+
+  --vc-danger: #A33D2E;
+  --vc-success: #0F6E56;
+}
+
+:root {
+  --vc-font-display: "Manrope", system-ui, -apple-system, sans-serif;
+  --vc-font-body:    "Inter", system-ui, -apple-system, sans-serif;
+
+  --vc-radius-sm: 6px;
+  --vc-radius-md: 8px;
+  --vc-radius-lg: 12px;
+  --vc-radius-pill: 999px;
+
+  --vc-shadow-elev: 0 1px 0 rgba(0,0,0,0.04);
+
+  --vc-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --vc-duration-fast: 150ms;
+  --vc-duration-base: 250ms;
+  --vc-duration-slow: 400ms;
+}
+
+html, body {
+  background: var(--vc-bg);
+  color: var(--vc-text-1);
+  font-family: var(--vc-font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background var(--vc-duration-base) var(--vc-ease),
+              color var(--vc-duration-base) var(--vc-ease);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+* {
+  transition: background-color var(--vc-duration-base) var(--vc-ease),
+              border-color var(--vc-duration-base) var(--vc-ease),
+              color var(--vc-duration-base) var(--vc-ease);
+}
+
+.vc-display {
+  font-family: var(--vc-font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--vc-text-1);
+}
+
+.vc-cap {
+  font-family: var(--vc-font-body);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--vc-bronze);
+}
+
+.vc-italic-gold {
+  font-style: italic;
+  color: var(--vc-accent-soft);
+}
+
+.vc-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--vc-accent);
+  border: none;
+  margin: 1.5rem auto;
+}
+
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--vc-accent);
+  outline-offset: 2px;
+  border-radius: var(--vc-radius-sm);
+}
+
+.vc-pilar-saude      { color: var(--vc-p-saude); }
+.vc-pilar-familia    { color: var(--vc-p-familia); }
+.vc-pilar-trabalho   { color: var(--vc-p-trabalho); }
+.vc-pilar-relacoes   { color: var(--vc-p-relacoes); }
+.vc-pilar-material   { color: var(--vc-p-material); }
+.vc-pilar-espiritual { color: var(--vc-p-espiritual); }
