@@ -1,115 +1,177 @@
-/* Vida & Carteira — Estilos do gate de senha
-   Privacy Guardian — Fase 1 */
+/* Vida & Carteira — Estilos do Gate de Senha
+   Constituicao visual / Sprint 2A
 
-:root {
-  --bg-primary: #0f1011;
-  --bg-secondary: #1a1c1f;
-  --bg-card: #22252a;
-  --text-primary: #e8e9eb;
-  --text-secondary: #9ca0a8;
-  --text-muted: #6b6f78;
-  --accent: #85B7EB;
-  --accent-hover: #6da4dc;
-  --danger: #F09595;
-  --success: #5DCAA5;
-  --border: #2d3036;
-  --radius: 8px;
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-}
+   Substitui o styles.css anterior. Depende de tokens.css carregado antes.
+   Estilos exclusivos da tela de senha (gate). A tela de marcos usa marcos.css.
+*/
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
+#app {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 1.5rem;
+  padding: 2rem 1rem;
+  position: relative;
+  box-sizing: border-box;
 }
 
-#app {
-  width: 100%;
-  max-width: 420px;
+.gate-header {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.gate-brand {
+  font-family: var(--vc-font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--vc-text-1);
+}
+
+.gate-brand .amp {
+  color: var(--vc-accent);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--vc-radius-pill);
+  background: var(--vc-bg-elev);
+  border: 0.5px solid var(--vc-border-strong);
+  color: var(--vc-accent);
+  font-family: var(--vc-font-body);
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--vc-bg-sub);
+}
+
+.theme-toggle i {
+  font-size: 14px;
 }
 
 .gate-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  box-shadow: var(--shadow);
+  background: var(--vc-bg-elev);
+  border: 0.5px solid var(--vc-border);
+  border-radius: var(--vc-radius-lg);
+  padding: 2.25rem 2rem 2rem;
+  width: 100%;
+  max-width: 380px;
+  box-sizing: border-box;
+}
+
+.gate-card .eyebrow {
+  font-family: var(--vc-font-body);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--vc-bronze);
+  margin: 0 0 0.75rem;
 }
 
 .gate-card h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  font-family: var(--vc-font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--vc-text-1);
+  margin: 0 0 0.5rem;
+}
+
+.gate-card h1 .amp {
+  color: var(--vc-accent);
 }
 
 .gate-card .subtitle {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
+  font-family: var(--vc-font-body);
+  font-size: 14px;
+  color: var(--vc-text-2);
+  line-height: 1.55;
+  margin: 0 0 1.5rem;
+}
+
+.gate-card .subtitle em,
+.gate-card .subtitle strong em {
+  font-style: italic;
+  color: var(--vc-accent-soft);
+  font-weight: 500;
+}
+
+.gate-card .subtitle strong {
+  font-weight: 500;
+  color: var(--vc-text-1);
 }
 
 .gate-card label {
   display: block;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
+  font-family: var(--vc-font-body);
   font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--vc-text-3);
+  margin: 0 0 0.5rem;
 }
 
-.gate-card input[type="password"] {
+.gate-card label + label {
+  margin-top: 1rem;
+}
+
+.gate-card input[type="password"],
+.gate-card input[type="text"] {
   width: 100%;
-  padding: 0.85rem 1rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--text-primary);
-  font-size: 1rem;
-  font-family: inherit;
-  margin-bottom: 1.25rem;
-  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+  background: var(--vc-bg-sub);
+  border: 0.5px solid var(--vc-border-strong);
+  border-radius: var(--vc-radius-md);
+  padding: 11px 13px;
+  color: var(--vc-text-1);
+  font-family: var(--vc-font-body);
+  font-size: 14px;
+  outline: none;
+  margin: 0 0 0.75rem;
 }
 
-.gate-card input[type="password"]:focus {
-  outline: none;
-  border-color: var(--accent);
-  background: var(--bg-primary);
+.gate-card input:focus {
+  border-color: var(--vc-accent);
+  background: var(--vc-bg);
+}
+
+.gate-card input::placeholder {
+  color: var(--vc-text-4);
 }
 
 .gate-card button {
   width: 100%;
-  padding: 0.9rem 1.25rem;
-  background: var(--accent);
-  color: var(--bg-primary);
+  box-sizing: border-box;
+  background: var(--vc-accent);
+  color: var(--vc-bg);
   border: none;
-  border-radius: var(--radius);
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: var(--vc-radius-md);
+  padding: 12px;
+  font-family: var(--vc-font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: background 0.2s;
-  font-family: inherit;
+  margin-top: 0.75rem;
 }
 
 .gate-card button:hover:not(:disabled) {
-  background: var(--accent-hover);
+  background: var(--vc-accent-soft);
 }
 
 .gate-card button:disabled {
@@ -117,60 +179,58 @@ body {
   cursor: not-allowed;
 }
 
-.message {
+.gate-card .message {
   margin-top: 1rem;
-  padding: 0.85rem 1rem;
-  border-radius: var(--radius);
-  font-size: 0.9rem;
+  padding: 10px 12px;
+  border-radius: var(--vc-radius-sm);
+  font-family: var(--vc-font-body);
+  font-size: 13px;
   line-height: 1.5;
   display: none;
 }
 
-.message.show {
+.gate-card .message.show {
   display: block;
 }
 
-.message.error {
-  background: rgba(240, 149, 149, 0.1);
-  border: 1px solid rgba(240, 149, 149, 0.3);
-  color: var(--danger);
+.gate-card .message.error {
+  background: var(--vc-bg-sub);
+  border-left: 3px solid var(--vc-danger);
+  color: var(--vc-danger);
 }
 
-.message.success {
-  background: rgba(93, 202, 165, 0.1);
-  border: 1px solid rgba(93, 202, 165, 0.3);
-  color: var(--success);
+.gate-card .message.success {
+  background: var(--vc-bg-sub);
+  border-left: 3px solid var(--vc-success);
+  color: var(--vc-success);
 }
 
-.message.info {
-  background: rgba(133, 183, 235, 0.1);
-  border: 1px solid rgba(133, 183, 235, 0.3);
-  color: var(--accent);
-}
-
-.footer-note {
-  margin-top: 2rem;
+.gate-card .footer-note {
+  margin: 1.5rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 0.5px solid var(--vc-border);
+  font-family: var(--vc-font-body);
+  font-size: 11px;
+  color: var(--vc-text-4);
+  line-height: 1.6;
   text-align: center;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.5;
 }
 
-.footer-note a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--text-muted);
-}
-
-.hidden {
-  display: none;
+.gate-card .footer-note em {
+  font-style: italic;
+  color: var(--vc-text-3);
 }
 
 @media (max-width: 480px) {
+  .gate-header {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+  }
   .gate-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem 1.75rem;
   }
   .gate-card h1 {
-    font-size: 1.3rem;
+    font-size: 26px;
   }
 }
